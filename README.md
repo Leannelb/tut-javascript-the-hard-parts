@@ -3,6 +3,9 @@ By Will Sentance | Frontend Masters
 
 ## JavaScript: The Hard Parts
 
+
+
+
 ### Introduction
 **5 Things that make a great developer:**
 - Analytical problem solving with code
@@ -69,19 +72,65 @@ const newOutput = multiplyBy2(10);
 - The Default return value of a function is `undefined`
 - Local memory is called a variable environment
 
+
 ### Q&A Global Memory and Call Stack
+- As your code is read, when it gets to a function it says, store this function definition in the global memory
+- Callstack is also in memory and is part of the JavaScript engine
+- There can be multiple callstacks for when you're using workers
 
 
 ### Principles Review
+- The thread, global memory and execution context are the key principles of JavaScript
+
 
 
 
 ## Functional Programming
 
+### Pure Functions
+Conceptually, pure functions are about structuring your code so that it can be modified later by other people
+- They have no side effects
+- They're immutable
+- The only consequence of the function is what it returns
+- Pure functions don't change anything in the global memory
+
+### Higher Order Functions
+This refers to leaving some functionality to be determined later. We may not want to decide exactly what our functionality is until we run our function
+
+**Prompt:** Create a function 10 squared, that returns 10*10
+```js
+function tenSquared () {
+  return 10 * 10;
+}
+```
+This function is not *DRY*. It's not reusable.
+
+**Better Function:**
+```js
+function squareNum (num) {
+  return num * num;
+}
+```
+
+**Best Function:**
+```js
+function mathNum (num, operation) {
+  return operation(num);
+}
+```
+
 
 
 
 ## Callbacks and Higher Order Functions
+
+### Introducing Pair Programming
+- You come up with a problem-solving approach, you have someone else do it
+- The key is talking through code, which will force you to understand it and try difficult things
+- Let the errors happen
+
+### Callbacks and Higher-Order Functions Exercises
+
 
 
 ## Closure
