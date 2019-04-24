@@ -20,6 +20,9 @@ critical value at Codesmith
 — Work hard, Work smart
 — Thoughtful communication
 
+
+
+
 ## Principles of JavaScript
 
 ### Global Execution Context
@@ -129,8 +132,116 @@ function mathNum (num, operation) {
 - The key is talking through code, which will force you to understand it and try difficult things
 - Let the errors happen
 
-### Callbacks and Higher-Order Functions Exercises
 
+### Callbacks and Higher-Order Functions Exercises
+[Callbacks Exercise](http://csbin.io/callbacks)
+
+
+### Parameterizing Functions
+**Below is a regular function**
+```js
+function copyArrayAndMultiplyBy2(array) {
+  let output = [];
+  for (let i = 0; i < array.length; i++) {
+    output.push(array[i] * 2);
+  }
+  return output;
+}
+
+const myArray = [1,2,3]
+
+let result = copyArrayAndMultiplyBy2(myArray)
+```
+
+
+### Q&A: Const and Let
+- Use const for everything unless you know you're going to change it
+
+
+### Generalizing Functions
+**Another Regular Function**
+Notice that really nothing changes here
+```js
+function copyArrayAndDivideBy2(array) {
+  let output = [];
+  for (let i = 0; i < array.length; i++) {
+    output.push(array[i] /2);
+  }
+  return output;
+}
+
+const myArray = [1,2,3]
+let result = copyArrayAndDivideBy2(myArray);
+```
+
+
+### Reviewing Generalizing Function
+- Doing functions like the ones above are breaking the DRY principle
+
+**Another One**
+```js
+function copyArrayAndAdd3(array) {
+  let output = [];
+  for (let i = 0; i < array.length; i++) {
+    output.push(array[i] +3);
+  }
+  return output;
+}
+
+const myArray = [1,2,3]
+
+let result = copyArrayAndAdd3(myArray);
+```
+
+#### A Better Solution!
+**Generalized Function**
+- This function is a flexible way of taking an array and performing an operation on it
+- generalize our function so that we pass in our specific instruction only when we run the copyArrayAndManipulate function!
+```js
+function copyArrayAndManipulate(array, instructions) {
+  let output = [];
+  for (let i = 0; i < array.length; i++) {
+    output.push(instructions(array[i]));
+  }
+  return output;
+}
+
+function multiplyBy2(input) {
+  return input * 2;
+}
+
+let result = copyArrayAndManipulate([1, 2, 3], multiplyBy2);
+```
+
+
+### Deconstructing Generalize Function
+```js
+// Store this function declaration in the global memory
+function copyArrayAndManipulate(array, instructions) {
+  let output = [];
+  for (let i = 0; i < array.length; i++) {
+    output.push(instructions(array[i]));
+  }
+  return output;
+}
+// Store this function declaration in the global memory
+function multiplyBy2(input) {
+  return input * 2;
+}
+// Store the label "result" and run this function to get its value
+let result = copyArrayAndManipulate([1, 2, 3], multiplyBy2);
+// Now the global context stops executing and we start running the copy and manipulate function in its own execution context
+// Store Variables in copyArrayAndManipulate's local memory
+```
+
+
+### Q&A: Passing Functions
+
+
+### First-Class Objects
+
+
+### Callback VS Higher Order Functions
 
 
 ## Closure
