@@ -236,15 +236,55 @@ let result = copyArrayAndManipulate([1, 2, 3], multiplyBy2);
 
 
 ### Q&A: Passing Functions
-
+- Nothing important here
 
 ### First-Class Objects
+- Functions are treated like objects so they can be passed into other functions
+- Returning a function as a value of another function is called closure
 
 
 ### Callback VS Higher Order Functions
-
+Takes in a function or passes out a function - Just a term to describe these functions - any function that does it we call that - but there's nothing different about them inherently
+```js
+// Higher order function
+function copyArrayAndManipulate(array, instructions) {
+  let output = [];
+  for (let i = 0; i < array.length; i++) {
+    output.push(instructions(array[i]));
+  }
+  return output;
+}
+// Callback
+function multiplyBy2(input) {
+  return input * 2;
+}
+let result = copyArrayAndManipulate([1, 2, 3], multiplyBy2);
+```
+- So callbacks and higher order functions simplify our code and keep it DRY
+- They allow us to run asynchronous code
 
 ## Closure
+
+### Introducing Closure
+- What if we could keep data/state between function executions?
+- It starts with returning a function from another function
+
+### Deconstructing Example
+How do we call `muliplyBy2` now?
+```js
+function instructionGenerator() {
+  function multiplyBy2 (num){
+    return num*2;
+  }
+  return multiplyBy2;
+}
+let generatedFunc = instructionGenerator()
+let result = generatedFunc(3) //6
+```
+
+
+### Q&A + Pair Programming
+[Closure Exercises](http://csbin.io/closures)
 
 
 ## Asynchronous JavaScript
