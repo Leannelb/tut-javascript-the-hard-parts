@@ -17,24 +17,30 @@ console.log('Hello, world!');
 
 
 function createFunction() {
-
+  function printHello () {
+    console.log('hello!');
+  }
+  return printHello;
 }
 
 // UNCOMMENT THESE TO TEST YOUR WORK!
-// var function1 = createFunction();
-// function1();
+var function1 = createFunction();
+function1();
 
 
 
 function createFunctionPrinter(input) {
-
+  function returnInput () {
+    console.log(input);
+  }
+  return returnInput;
 }
 
 // UNCOMMENT THESE TO TEST YOUR WORK!
-// var printSample = createFunctionPrinter('sample');
-// printSample();
-// var printHello = createFunctionPrinter('hello');
-// printHello();
+var printSample = createFunctionPrinter('sample');
+printSample();
+var printHello = createFunctionPrinter('hello');
+printHello();
 
 
 
@@ -53,40 +59,51 @@ var jasCounter = outer();
 // Uncomment each of these lines one by one.
 // Before your do, guess what will be logged from each function call.
 
-// willCounter();
-// willCounter();
-// willCounter();
+willCounter();
+willCounter();
+willCounter();
 
-// jasCounter();
-// willCounter();
+jasCounter();
+willCounter();
 
-
+// Challenge 4
 
 function addByX(x) {
-
+  function addValue(y) {
+    // console.log(x + y);
+    return x + y;
+  }
+  return addValue;
 }
 
 var addByTwo = addByX(2);
 
 // now call addByTwo with an input of 1
-
+addByTwo(1);
 
 // now call addByTwo with an input of 2
-
+addByTwo(2);
 
 
 //--------------------------------------------------
-// Extension
+// Challenge 5: Extension
 //--------------------------------------------------
 
 function once(func) {
-
+  let called = false;
+  function innerFunc() {
+    if (!called) {
+      called = true;
+      func();
+    }
+  }
+  return innerFunc;
 }
 
 var onceFunc = once(addByTwo);
 
 // UNCOMMENT THESE TO TEST YOUR WORK!
-// console.log(onceFunc(4));  //should log 6
+console.log(onceFunc(4));  //should log 6
 // console.log(onceFunc(10));  //should log 6
 // console.log(onceFunc(9001));  //should log 6
 
