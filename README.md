@@ -352,13 +352,35 @@ myNewFunction();
 
 
 ### Q&A Garbage Collection
+- Nothing
 
 ### Closure Exercise, Part 4
+- Declaring `outer` in `myNewFunction` and `anotherFunction` calls it independently and ties it to each variable so they can update independently of one another
+```js
+function outer (){
+  let counter = 0;
+  function incrementCounter (){
+    counter ++;
+  }
+  return incrementCounter;
+}
+
+let myNewFunction = outer();
+myNewFunction();
+myNewFunction();
+
+let anotherFunction = outer(); // myNewFunction = incrementCounter
+anotherFunction();
+anotherFunction();
+```
+
 
 ### Q&A Shared References
+-
 
 ### Power of Closure
-
+- Now: Our functions get 'memories' - once, memoize
+- Advanced: We can implement the module pattern in JavaScript
 
 ## Asynchronous JavaScript
 
