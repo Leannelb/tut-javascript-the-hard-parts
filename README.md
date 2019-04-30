@@ -287,6 +287,79 @@ let result = generatedFunc(3) //6
 [Closure Exercises](http://csbin.io/closures)
 
 
+### Closure Exercise, Part 1
+- Where you define your functions determines what variables your function have access to when you call the function
+- Increment counter looks for the counter variable and finds it in outer
+```js
+function outer (){
+  let counter = 0;
+  function incrementCounter (){
+    counter ++;
+  }
+  incrementCounter();
+}
+
+outer();
+```
+- The following won't work because `incrementCounter()` is defined in `outer`, but not global memory
+```js
+function outer (){
+  let counter = 0;
+  function incrementCounter (){
+    counter ++;
+  }
+}
+outer()
+incrementCounter();
+```
+
+### Closure Exercise, Part 2
+- This is how we call a function outside the scope under which it was defined
+```js
+function outer () {
+  let counter = 0;
+  function incrementCounter (){
+    counter ++;
+  }
+  return incrementCounter;
+}
+var myNewFunction = outer(); // myNewFunction = incrementCounter
+
+myNewFunction();
+```
+
+### Closure Exercise, Part 3
+- Defining `outer` with a function inside it created a special bond between itself and the function inside it
+- This is how we have access to `counter`
+```js
+function outer () {
+  let counter = 0;
+  function incrementCounter (){
+    counter ++;
+  }
+  return incrementCounter;
+}
+var myNewFunction = outer(); // myNewFunction = incrementCounter
+
+myNewFunction();
+```
+
+
+### Q&A Lexical Scope
+- Closure / Lexical Scope Reference is the official name of the bond between `outer` and `incrementCounter`
+- This data can only be accessed when calling `incrementCounter`
+- The position of a function definition, not where it is called, defines the scope of what it has access to
+
+
+### Q&A Garbage Collection
+
+### Closure Exercise, Part 4
+
+### Q&A Shared References
+
+### Power of Closure
+
+
 ## Asynchronous JavaScript
 
 
