@@ -382,7 +382,84 @@ anotherFunction();
 - Now: Our functions get 'memories' - once, memoize
 - Advanced: We can implement the module pattern in JavaScript
 
+
+
+
+
 ## Asynchronous JavaScript
+
+### Introducing Asynchronous JavaScript
+- Async JavaScript allows JS to run while API calls and such are made
+```js
+function printHello() {
+  console.log("Hello");
+}
+
+setTimeout(printHello,1000);
+console.log("Me first!");
+```
+- These timeouts will run *after* our following calls
+```js
+function printHello(){
+  console.log("Hello");
+}
+setTimeout(printHello,0);
+console.log("Me first!");
+```
+
+**Platform Components**
+- Thread of Execution
+- Memory / Variable Environment
+- Call Stack
+- Web Browser API / Node Background Threads
+- Callback / Message Queue
+- Event Loop
+
+
+### Browser API
+- First, we create our execution context
+- We declare our `printHello` function and store it in global memory with that label
+- `setTimeout` taps into our Browser API and spins up a timer
+```js
+function printHello(){
+  console.log("Hello");
+}
+setTimeout(printHello,0);
+console.log("Me first!");
+```
+
+
+### Browser API Q&A
+
+
+### Resetting Pair Programming
+[Asynchronous Questions](https://jsbin.com/hijijag/1/edit?js,console,output)
+[Asynchronous Answers](https://github.com/FrontendMasters/fm-snippets/blob/master/2018-01-22-javascript-hard-parts/fem-JavaScriptTheHardParts-AsynchronicitySolutions.js)
+
+
+### Browser API Q&A Part II
+
+
+### Callback Queue
+- Declare `printHello`
+- Delcare `blockFor1Sec`
+- We set a timeout on print hello, it will print at the end of the execution sequence
+- The Callback Queue adds the timeout to the call stack when the global context is done running and the call stack is empty
+-
+```js
+function printHello(){
+console.log("Hello");
+}
+function blockFor1Sec(){
+//blocks in the JavaScript thread for 1 second
+}
+setTimeout(printHello,0);
+blockFor1Sec()
+console.log("Me first!");
+```
+
+
+
 
 
 ## Object-Oriented JavaScript
