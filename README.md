@@ -459,7 +459,41 @@ console.log("Me first!");
 ```
 
 
+### Callback Queue & Event Loop
+- Hold each deferred function in a queue (the Callback Queue) when the API ‘completes’
+- Add the function to the Call stack (i.e. execute the function) ONLY when the call stack is totally empty (Have the Event Loop check this condition)
 
+
+### Asynchronous Q&A and Pair Programming
+- You can't override when the `timeout` runs, it will always happen after everything else has completed
+
+### Introducing More Browser APIs
+Things that the browser has API's for:
+- A timer to finish running
+- New information from a server (Ajax)
+- Indication that a portion of the page has loaded
+- User interaction (clicks, mouseovers, drags)
+- Writing/Reading to File system (Node)
+- Writing/reading database (Node)
+
+
+### XMLHttpRequest
+- AJAX requests go off and do their thing while the rest of the JavaScript executes
+```js
+function display(data){
+  console.log(data.post);
+}
+$.get("http://twitter.com/willsen/tweet/1", display);
+console.log(“Me first!”);
+```
+
+
+### XMLHttpRequest Q&A
+- Global never goes away
+
+
+### XMLHttpRequest Correction
+- It's XML and XHR
 
 
 ## Object-Oriented JavaScript
