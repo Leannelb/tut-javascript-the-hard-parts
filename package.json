@@ -1,0 +1,19 @@
+{
+  "name": "tut-javascript-the-hard-parts",
+  "version": "1.0.0",
+  "description": "By Will Sentance | Frontend Masters",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frankluongo92/tut-javascript-the-hard-parts.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frankluongo92/tut-javascript-the-hard-parts/issues"
+  },
+  "homepage": "https://github.com/frankluongo92/tut-javascript-the-hard-parts#readme"
+}

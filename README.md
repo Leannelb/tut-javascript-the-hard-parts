@@ -3,9 +3,6 @@ By Will Sentance | Frontend Masters
 
 ## JavaScript: The Hard Parts
 
-
-
-
 ### Introduction
 **5 Things that make a great developer:**
 - Analytical problem solving with code
@@ -496,7 +493,109 @@ console.log(“Me first!”);
 - It's XML and XHR
 
 
+
+
 ## Object-Oriented JavaScript
+- [Object Oriented Programming Exercises](http://csbin.io/oop)
+- [Answers](https://github.com/FrontendMasters/fm-snippets/blob/master/2018-01-22-javascript-hard-parts/fem-JavaScriptTheHardParts-OOPSolutions.js)
+
+
+### Introducing Object Oriented JavaScript
+- Easy to add features and functionality
+- Performant (memory efficient)
+- Easy for other developers to read
+
+```js
+let user1 = {
+  name: 'Will',
+  score: 3,
+  increment: function () {
+    user1.score++;
+  }
+};
+user1.increment();
+```
+
+
+### OOP Exercise Part 1
+- Define the object and all code associated with it lives on the object
+
+
+### OOP Exercise Part 2
+- Use bracket notation when the object property name is a variable
+- Another way to create objects with dot notation:
+```js
+let user2 = {}; //create an empty object
+user2.name = "Tim"; //assign properties to that object
+user2.score = 6;
+user2.increment = function() {
+user2.score++;
+};
+```
+- Using `Object.create`
+```js
+let user3 = Object.create(null);
+user3.name = "Eva";
+user3.score = 9;
+user3.increment = function() {
+user3.score++;
+};
+```
+
+
+### OOP Exercise Part 3
+- We can use a function to store this functionality
+```js
+function userCreator(name, score) {
+  let newUser = {};
+    newUser.name = name;
+    newUser.score = score;
+    newUser.increment = function() {
+    newUser.score++;
+  };
+  return newUser;
+};
+
+let user1 = userCreator("Will", 3);
+let user2 = userCreator("Tim", 5);
+user1.increment();
+user2.increment();
+```
+
+
+### OOP Exercise Q&A and Pair Programming
+- The problem is that these functions are expensive for our memory, we need to use proto
+
+
+### __proto__
+- Add increment function in one object have other objects reference
+- JavaScript has a prototypal nature that allows objects to look for shared function stores
+
+
+### OOP Exercise Part 4
+We use `Object.create` to create a new object based on our `userFunctionStore`
+- `__proto__` is the bond from one object to another
+```js
+function userCreator (name, score) {
+  let newUser = Object.create(userFunctionStore);
+  newUser.name = name;
+  newUser.score = score;
+  return newUser;
+};
+
+let userFunctionStore = {
+  increment: function(){this.score++;},
+  login: function(){console.log("You're loggedin");}
+};
+
+let user1 = userCreator("Will", 3);
+let user2 = userCreator("Tim", 5);
+user1.increment();
+```
+
+
+### __proto__ Q&A and Pair Programming Part 2
+
 
 
 ## Wrapping Up
