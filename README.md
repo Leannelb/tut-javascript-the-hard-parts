@@ -595,6 +595,68 @@ user1.increment();
 
 
 ### __proto__ Q&A and Pair Programming Part 2
+- JavaScript objects have inheritance that allows you to share functions between objects
+
+
+### new operator
+- When we call `new` we create and return the new object
+- Provides it with the `this` label
+- Functions are just objects
+-
+```js
+let user1 = new userCreator("Will", 3)
+```
+
+
+### new operator Q&A
+- N/A
+
+
+### Object.prototype
+- This is another object
+```js
+function userCreator(name, score) {
+  let newUser = Object.create(functionStore);
+  newUser this.name = name;
+  newUser this.score = score;
+  return newUser;
+};
+functionStore userCreator.prototype // {};
+
+functionStore userCreator.prototype.increment = function(){
+  this.score++;
+}
+
+let user1 = new userCreator("Will", 3);
+```
+
+
+### OOP Exercise Part 5
+```js
+function User(name, score){
+  this.name = name;
+  this.score = score;
+}
+
+User.prototype.increment = function(){
+  this.score++;
+};
+
+User.prototype.login = function(){
+  console.log("login");
+};
+
+let user1 = new User(“Eva”, 9)
+user1.increment();
+```
+
+
+### Object.prototype Q&A
+- There is a difference between `__proto__` and `prototype`.
+
+
+### Class Syntactic Sugar
+
 
 
 
