@@ -615,19 +615,21 @@ let user1 = new userCreator("Will", 3)
 ### Object.prototype
 - This is another object
 ```js
-function userCreator(name, score) {
-  let newUser = Object.create(functionStore);
-  newUser this.name = name;
-  newUser this.score = score;
+function userCreator (name, score) {
+  let newUser = Object.create(userFunctionStore);
+  newUser.name = name;
+  newUser.score = score;
   return newUser;
 };
-functionStore userCreator.prototype // {};
 
-functionStore userCreator.prototype.increment = function(){
-  this.score++;
-}
+let userFunctionStore = {
+  increment: function(){this.score++;},
+  login: function(){console.log("You're loggedin");}
+};
 
-let user1 = new userCreator("Will", 3);
+let user1 = userCreator("Will", 3);
+let user2 = userCreator("Tim", 5);
+user1.increment();
 ```
 
 
