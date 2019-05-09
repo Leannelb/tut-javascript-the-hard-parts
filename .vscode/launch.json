@@ -8,7 +8,7 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceFolder}/course-practice/object-oriented-programming/oop.js"
-    }
+      "program": "${workspaceFolder}/course-practice/object-oriented-programming/oop-practice.js"
+    },
   ]
 }

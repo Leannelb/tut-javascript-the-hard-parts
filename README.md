@@ -656,7 +656,26 @@ user1.increment();
 
 
 ### Class Syntactic Sugar
+This does all the prototyping jawns under the hood but we call it class
+```js
+class User {
+  constructor (name, score){
+    this.name = name;
+    this.score = score;
+  }
 
+  increment (){
+    this.score++;
+  }
+
+  login (){
+    console.log("login");
+  }
+}
+
+let user1 = new User("Eva", 9);
+user1.increment();
+```
 
 
 
